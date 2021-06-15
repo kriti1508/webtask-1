@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css" />
+	<style>
+		body{
+			background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+		}
+		.contact-form{
+			max-width: 350px;
+			margin:auto;
+			border-radius: 5px;
+			background: #87cefa;
+			font-family: sans-serif;
+			padding: 20px;
+			font-weight: bold;
+		}
+		input[type=text], select{
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		input[type=submit] {
+			width: 100%;
+			background: #002fa7;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		input[type=submit] :hover{
+			background: #000;
+		}
+		
+	</style>
+</head>
+<body>
+<div class ="contact-form">
+	<form action="otp.html">
+		  <center><img src="Pay.jpeg" style="width: 150px; height: 100px;"> <H1></H1> </center>
+		<label for="name"><font size = "4">First Name</font></label>
+		<br>
+		<input type="text" name="fname"required> 
+		<placeholder= "Enter Your First Name">
+		<br><br>
+		<label for="name"><font size = "4">Last Name</font></label>
+		<br>
+		<input type="text" name="lname"required>
+		<placeholder= "Enter your Last name">
+		<br><br>
+		<label for="bank"><font size = "4">Select Payment Method</font></label>
+		<br><br>
+		<select id="id_select2_example" style="width: 350px; height: 200px;">
+			<option> Select one..</option>
+			<option data-img_src="paytm.jpeg"></option>
+		    <option data-img_src="gpay.jpeg"></option>
+		    <option data-img_src="PhonePe.jpeg"></option>
+		    <option data-img_src="bhim.jpeg"> </option>
+			</select> 
+		<br><br>
+		<label for="name"><font size = "4">UPI I'd</font></label>
+		<br>
+		<input type="text" name="upid"required>
+		<placeholder= "Enter your UPI ID">
+		<br><br><br>
+	
+		<b><input type="submit" value="VERIFY & PAY"></b>
+	</form>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.js"></script>
+	<script type="text/javascript">
+    function custom_template(obj){
+            var data = $(obj.element).data();
+            var text = $(obj.element).text();
+            if(data && data['img_src']){
+                img_src = data['img_src'];
+                template = $("<div><img src=\"" + img_src + "\" style=\"width:50%;height:50px;margin-left:70px;margin-top:5px;\"/><p style=\"font-weight: 200;font-size:12pt;text-align:center;\">" + text + "</p></div>");
+                return template;
+            }
+        }
+    var options = {
+        'templateSelection': custom_template,
+        'templateResult': custom_template,
+    }
+    $('#id_select2_example').select2(options);
+    $('.select2-container--default .select2-selection--single').css({'height': '65px'});
+</script>
+</body>
+</html>
